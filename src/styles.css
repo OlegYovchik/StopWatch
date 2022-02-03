@@ -1,1 +1,39 @@
-/* You can add global styles to this file, and also import other style files */
+body{
+    margin: 0;
+}
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(to right, rgb(41, 99, 67), rgb(104, 243, 201));
+}
+.digits, .buttons{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 50px;
+}
+.digits{
+    color: azure;
+    font-size: 55px;
+    font-weight: 600;
+}
+button{
+    margin: 5px 10px;
+    border: 0;
+    width: 60px;
+    height: 30px;
+    border-radius: 10px;
+    color: azure;
+}
+.reset{
+    background-color: rgba(255, 0, 0, 0.685);
+}
+.start{
+    background-color: rgba(0, 128, 0, 0.685);
+}
+.pause{
+    background-color: rgb(105, 105, 8, 0.685);
+}
