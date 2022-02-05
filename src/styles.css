@@ -22,18 +22,20 @@ main{
 }
 button{
     margin: 5px 10px;
-    border: 0;
-    width: 60px;
+    min-width: 60px;
     height: 30px;
     border-radius: 10px;
     color: azure;
 }
-.reset{
+button:active{
+    font-size: 12px;
+    border: 1px;
+}
+.stop{
     background-color: rgba(255, 0, 0, 0.685);
+    border: 2px solid rgb(161, 10, 10);
 }
 .start{
     background-color: rgba(0, 128, 0, 0.685);
-}
-.pause{
-    background-color: rgb(105, 105, 8, 0.685);
+    border: 2px solid rgb(7, 71, 7);
 }
