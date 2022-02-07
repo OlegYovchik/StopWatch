@@ -6,9 +6,9 @@
     <div class="milisecond">{{stringMili}}</div>
   </div>
   <div class="buttons">
-    <button class="stop" *ngIf="!isStop" (click)="stop()">STOP</button>
-    <button class="stop" *ngIf="isStop" (click)="reset()">RESET</button>
+    <button class="reset" [disabled]="isPlay"(click)="reset()">RESET</button>
     <button class="start" [disabled]="isPlay" (click)="start()">START</button>
+    <button class="pause" [disabled]="isPause" (click)="pause()" >WAIT</button>
   </div>
   
 </main>

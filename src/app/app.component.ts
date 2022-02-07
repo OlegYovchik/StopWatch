@@ -24,14 +24,18 @@ export class AppComponent {
 
   lastCount = 0;
 
-  isStop = false;
   isPlay = false;
+  isPause = false;
+
+  countClick = 0;
+  click1:any;
+  click2:any;
 
   constructor(){}
 
   start(){
-      this.isStop = false;
       this.isPlay = true;
+      this.isPause = false;
       this.subscribing = this.trigger$.subscribe((x)=>{
       this.stringWatch();
       if(this.countMili < 99){
@@ -48,16 +52,31 @@ export class AppComponent {
       }
     })
   };
-  stop(){
-    this.subscribing.unsubscribe();
-    this.isStop = true;
-    this.isPlay = false;
-  };
   reset(){
-    this.isStop = false;
     this.isPlay = false;
     this.countMili = this.countSec = this.countMin = this.countHour = 0;
     this.stringMili = this.stringSec = this.stringMin = this.stringHour = "00";
+  }
+  pause(){
+    if(this.countClick==0){
+      this.click1 = new Date();
+      this.countClick++;
+    }else{
+      this.countClick++;
+    }
+   if(this.countClick == 2){
+     this.click2 = new Date();
+     this.countClick = 0;
+     if((this.click2-this.click1)<=300){
+       this.countClick = 0;
+       this.wait();
+     }
+   }
+  }
+  wait(){
+    this.subscribing.unsubscribe();
+    this.isPlay = false;
+    this.isPause = true;
   }
   stringWatch(){
     if(this.countMili == 99){
