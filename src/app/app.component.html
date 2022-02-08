@@ -6,9 +6,9 @@
     <div class="milisecond">{{stringMili}}</div>
   </div>
   <div class="buttons">
-    <button class="reset" [disabled]="isPlay"(click)="reset()">RESET</button>
+    <button class="reset" (click)="reset()">RESET</button>
+    <button class="stop" (click)="stop()">STOP</button>
     <button class="start" [disabled]="isPlay" (click)="start()">START</button>
     <button class="pause" [disabled]="isPause" (click)="pause()" >WAIT</button>
   </div>
-  
 </main>

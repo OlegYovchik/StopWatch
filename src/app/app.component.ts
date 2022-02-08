@@ -26,6 +26,7 @@ export class AppComponent {
 
   isPlay = false;
   isPause = false;
+  isStop = false;
 
   countClick = 0;
   click1:any;
@@ -34,6 +35,11 @@ export class AppComponent {
   constructor(){}
 
   start(){
+    if(this.isStop){
+      this.isStop = false;
+      this.countMili = this.countSec = this.countMin = this.countHour = 0;
+      this.stringMili = this.stringSec = this.stringMin = this.stringHour = "00";
+    }
       this.isPlay = true;
       this.isPause = false;
       this.subscribing = this.trigger$.subscribe((x)=>{
@@ -52,6 +58,11 @@ export class AppComponent {
       }
     })
   };
+  stop(){
+    this.isPlay = false;
+    this.isStop = true;
+    this.subscribing.unsubscribe()
+  }
   reset(){
     this.isPlay = false;
     this.countMili = this.countSec = this.countMin = this.countHour = 0;
