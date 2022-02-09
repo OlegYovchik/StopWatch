@@ -35,11 +35,6 @@ export class AppComponent {
   constructor(){}
 
   start(){
-    if(this.isStop){
-      this.isStop = false;
-      this.countMili = this.countSec = this.countMin = this.countHour = 0;
-      this.stringMili = this.stringSec = this.stringMin = this.stringHour = "00";
-    }
       this.isPlay = true;
       this.isPause = false;
       this.subscribing = this.trigger$.subscribe((x)=>{
@@ -62,11 +57,11 @@ export class AppComponent {
     this.isPlay = false;
     this.isStop = true;
     this.subscribing.unsubscribe()
+    this.nulling();
   }
   reset(){
     this.isPlay = false;
-    this.countMili = this.countSec = this.countMin = this.countHour = 0;
-    this.stringMili = this.stringSec = this.stringMin = this.stringHour = "00";
+    this.nulling();
   }
   pause(){
     if(this.countClick==0){
@@ -121,5 +116,9 @@ export class AppComponent {
         } 
       }
     }
+  }
+  nulling(){
+    this.countMili = this.countSec = this.countMin = this.countHour = 0;
+    this.stringMili = this.stringSec = this.stringMin = this.stringHour = "00";
   }
 }
